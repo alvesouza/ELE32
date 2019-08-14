@@ -15,8 +15,7 @@ while y <= linhas
         end
         x = x + 1;
     end
-    vetor = logical(vetor);
-    X = logical([X; vetor]);
+    X = [X; vetor];
     y = y+1;
 end
 

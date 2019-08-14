@@ -8,7 +8,7 @@ while y <= linhas
     x = 1;
     while x <= colunas
         if rand <= p
-            palavras(y, x) = not(palavras(y, x)); 
+            palavras(y, x) = rem(palavras(y, x)+1,2); 
         end
         x = x + 1;
     end

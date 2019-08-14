@@ -1,10 +1,9 @@
-function [recebida,a] = mostraSeed(seed)
+function recebida = logicalMatrix(seed)
 s = rng(seed);
-y = 1;
+y = logical([0,0,0]);
 while y <= 3
     rand
     y = y+1;
 end
 recebida = rand;
-a = logical(1);
 end
