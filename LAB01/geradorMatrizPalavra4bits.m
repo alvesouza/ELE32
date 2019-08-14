@@ -1,29 +1,25 @@
 function X = geradorMatrizPalavra4bits(X)
 y = 1;
 tamanho = size(X);
-linhas = tamanho(1)
+linhas = tamanho(1);
 colunas = tamanho(2);
 colunasParidade = 3;
-matrizParidade = [];
+matrizParidade = zeros(linhas,3);
 while y <= linhas
     x = 1;
-    vetorParidade = [];
-    while x <= colunasParidade
-        if x == 1
-            vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,3),2)];
-        elseif x == 2
-            vetorParidade = [vetorParidade rem(X(y,1)+X(y,3)+X(y,4),2)];
-        elseif x == 3
-            vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,4),2)];
+    vetorParidade = [rem(X(y,1)+X(y,2)+X(y,3),2) rem(X(y,1)+X(y,3)+X(y,4),2) rem(X(y,1)+X(y,2)+X(y,4),2)];
+    %while x <= colunasParidade
+    %    if x == 1
+    %        vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,3),2)];
+    %    elseif x == 2
+    %        vetorParidade = [vetorParidade rem(X(y,1)+X(y,3)+X(y,4),2)];
+    %    elseif x == 3
+    %        vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,4),2)];
         
-        end
-        x = x + 1;
-    end
-    if y == 1
-        matrizParidade = vetorParidade;
-    else
-        matrizParidade = [matrizParidade;vetorParidade];
-    end
+    %   end
+    %    x = x + 1;
+    %end
+    matrizParidade(y,:) = vetorParidade;
     
     %matrizParidade = [matrizParidade;vetorParidade]
     

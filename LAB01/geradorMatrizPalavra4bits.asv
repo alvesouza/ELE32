@@ -1,33 +1,34 @@
-function X = geradorMatrizPalavra4bits(X,seed)
-s = rng(seed);
+function X = geradorMatrizPalavra4bits(X)
 y = 1;
 tamanho = size(X);
-linhas = tamanho(1);
+linhas = tamanho(1)
 colunas = tamanho(2);
 colunasParidade = 3;
-matrizParidade = [];
-soma = logical(0);
+matrizParidade = zeros(linhas,3);
 while y <= linhas
     x = 1;
-    vetorParidade = [];
+    vetorParidade = [0 0 0];
     while x <= colunasParidade
         if x == 1
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,3))]
+            vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,3),2)];
         elseif x == 2
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,3)),X(y,4))]
-        elseif x ==3
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,4))]
-        vetorParidade
+            vetorParidade = [vetorParidade rem(X(y,1)+X(y,3)+X(y,4),2)];
+        elseif x == 3
+            vetorParidade = [vetorParidade rem(X(y,1)+X(y,2)+X(y,4),2)];
+        
         end
-    if y == 1
-        matrizParidade = vetorParidade
+        x = x + 1;
     end
-    matrizParidade
-    vetorParidade
-    matrizParidade = [matrizParidade;vetorParidade]
+    if y == 1
+        matrizParidade = vetorParidade;
+    else
+        matrizParidade = [matrizParidade;vetorParidade];
+    end
+    
+    %matrizParidade = [matrizParidade;vetorParidade]
     
     y = y+1;
 end
-X = [X matrizParidade]
+X = [X matrizParidade];
 
 end

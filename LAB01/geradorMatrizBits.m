@@ -2,20 +2,20 @@ function X = geradorMatrizBits(numeroBits,bitInformacaoPalavra,q,seed)
 s = rng(seed);
 linhas = numeroBits/bitInformacaoPalavra;
 colunas = bitInformacaoPalavra;
-X = [];
+X = zeros(linhas,colunas);
 y = 1;
 while y <= linhas
     x = 1;
-    vetor = [];
+    vetor = [0 0 0 0];
     while x <= colunas
         if rand <= q
-            vetor = [vetor 1];
+            vetor(x) = 1;
         else
-            vetor = [vetor 0];
+            vetor(x) = 0;
         end
         x = x + 1;
     end
-    X = [X; vetor];
+    X(y,:) = vetor;
     y = y+1;
 end
 
