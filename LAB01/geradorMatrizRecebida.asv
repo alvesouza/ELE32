@@ -1,0 +1,5 @@
+function recebida = geradorMatrizRecebida(X,p,seed)
+
+recebida = randi(logical([0,1]),numeroBits/bitInformacaoPalavra,bitInformacaoPalavra);
+
+end
