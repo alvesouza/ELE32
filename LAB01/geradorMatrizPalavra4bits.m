@@ -31,6 +31,6 @@ while y <= linhas
     
     y = y+1;
 end
-X = [X matrizParidade]
+X = logical([X matrizParidade]);
 
 end
