@@ -1,11 +1,19 @@
-function recebida = geradorMatrizRecebida(X,p,seed)
+function recebida = geradorMatrizRecebida(palavras,p,seed)
 s = rng(seed);
-n = 3
-while n >= 1
-    if rand
-        
+y = 1;
+tamanho = size(palavras);
+linhas = tamanho(1);
+colunas = tamanho(2);
+while y <= linhas
+    x = 1;
+    while x <= colunas
+        if rand <= p
+            palavras(y, x) = not(palavras(y, x)); 
+        end
+        x = x + 1;
     end
-    n = n-1;
+    
+    y = y+1;
 end
-recebida = 1;
+recebida = palavras;
 end

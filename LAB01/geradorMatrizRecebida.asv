@@ -1,5 +1,16 @@
-function recebida = geradorMatrizRecebida(X,p,seed)
-
-recebida = randi(logical([0,1]),numeroBits/bitInformacaoPalavra,bitInformacaoPalavra);
-
+function recebida = geradorMatrizRecebida(palavra,p,seed)
+s = rng(seed);
+y = 0;
+tamanho = size(X);
+linhas = tamanho(1);
+colunas = tamanho(2);
+while y <= colunas
+    x = 1;
+    while x
+    if rand
+        
+    end
+    y = y+1;
+end
+recebida = 1;
 end
