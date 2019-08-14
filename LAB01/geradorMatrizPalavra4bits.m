@@ -2,7 +2,7 @@ function X = geradorMatrizPalavra4bits(X,seed)
 s = rng(seed);
 y = 1;
 tamanho = size(X);
-linhas = tamanho(1);
+linhas = tamanho(1)
 colunas = tamanho(2);
 colunasParidade = 3;
 matrizParidade = [];
@@ -12,21 +12,22 @@ while y <= linhas
     vetorParidade = [];
     while x <= colunasParidade
         if x == 1
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,3))]
+            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,3))];
         elseif x == 2
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,3)),X(y,4))]
-        elseif x ==3
-            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,4))]
+            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,3)),X(y,4))];
+        elseif x == 3
+            vetorParidade = [vetorParidade xor(xor(X(y,1),X(y,2)),X(y,4))];
         
         end
         x = x + 1;
     end
-    matrizParidade
-    vetorParidade
     if y == 1
         matrizParidade = vetorParidade
+    else
+        matrizParidade = [matrizParidade;vetorParidade]
+    end
     
-    matrizParidade = [matrizParidade;vetorParidade]
+    %matrizParidade = [matrizParidade;vetorParidade]
     
     y = y+1;
 end
