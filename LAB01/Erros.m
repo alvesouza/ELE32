@@ -1,4 +1,4 @@
-function valor = Acerto(p)
+function valor = Erros(p)
 
 seed = 10;
 numeroBits = 1000000;
@@ -10,12 +10,10 @@ R = geradorMatrizRecebida(V,p,seed);
 
 Resp = verificaRecepcao(R);
 
-aux = sum(xor(Resp,V),2);
-cont = 0 ;
+aux = sum(xor(Resp(:,1:4),V(:,1:4)),2);
+cont = 0;
 for i = 1:size(aux)
-    if(aux(i) == 0)
-        cont = cont+1;
-    end
+    cont = cont + aux(i);
 end
 
 
