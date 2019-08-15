@@ -1,9 +1,11 @@
 function e = erroMaisProvavel(s,Ht,r)
    E = eye(7);
+   
    vec3Zeros = zeros(1,3);
    vec7Zeros = zeros(1,7);
    e = vec7Zeros;
    i = 1;
+   
    while (i <= 7 && isequal(e, vec7Zeros))
        
        x = rem(E(i,:)*Ht,2);
