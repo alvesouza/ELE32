@@ -1,0 +1,9 @@
+function recebida = logicalMatrix(seed)
+s = rng(seed);
+y = logical([0,0,0]);
+while y <= 3
+    rand
+    y = y+1;
+end
+recebida = rand;
+end

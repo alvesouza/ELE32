@@ -1,30 +1,29 @@
-function [Resp] = verificaRecepcao(R)
+function [Resp] = verificaRecepcao(R,P)
     Resp = zeros(size(R,1),size(R,2));
-    quantsAlter = 0;
-    quantsBitAlrados = 0;
-    P = [1 1 1;1 0 1;1 1 0; 0 1 1];
+    %quantsAlter = 0;
+    %quantsBitAlrados = 0;
     %G = [eye(4), P];
-    Ht = [(P)' eye(3)]';
-    vec3Zeros = zeros(1,3);
+    Ht = [(P)' eye(4)]';
+    vec4Zeros = zeros(1,4);
     %vec7Zeros = zeros(1,7);    
     for i = 1:size(R,1)
         %r = R(i,:);
         s = rem(R(i,:)*Ht,2);
-        if s == vec3Zeros
+        if s == vec4Zeros
             %e = vec7Zeros;
             Resp(i,:) = R(i,:);
         else
-            e = erroMaisProvavel(s,Ht,R(i,:));
+            %e = erroMaisProvavel(s,Ht,R(i,:));
             %quantsAlter = quantsAlter + 1;
             %for j = 1:4
             %    if e(j) == 1
             %        quantsBitAlrados = quantsBitAlrados+1;
-                    break;
-                end
-            end
+            %        break;
+            %    end
+            %end
             
             %Resp(i,:) = xor(erroMaisProvavel(s,Ht,R(i,:)),R(i,:));
-            Resp(i,:) = xor(e,R(i,:));
+            Resp(i,:) = xor(erroMaisProvavel(s,Ht,R(i,:)),R(i,:));
         end
         
     end
